@@ -1,0 +1,12 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/_build": true,
+    "**/deps": true
+  }
+}
