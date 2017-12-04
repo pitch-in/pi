@@ -1,0 +1,3 @@
+<h1>To-Do List</h1>
+
+<pi-action *ngFor="let context of (toDoListStream.$ | async)" [action]="context.action" [parent]="context.goal"></pi-action>

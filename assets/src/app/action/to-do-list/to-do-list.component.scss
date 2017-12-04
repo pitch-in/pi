@@ -1,0 +1,16 @@
+@import 'variables/colors';
+
+:host {
+  margin-left: 1rem;
+  display: block;
+  border-bottom: 1px solid $gray-5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+}

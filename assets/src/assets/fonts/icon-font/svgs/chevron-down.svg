@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="95 -392 22 22"
+   version="1.1"
+   id="svg3997"
+   sodipodi:docname="Down Arrow Gary.svg"
+   inkscape:version="0.92.2 (unknown)">
+  <metadata
+     id="metadata4001">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="756"
+     inkscape:window-height="480"
+     id="namedview3999"
+     showgrid="false"
+     inkscape:zoom="10.727273"
+     inkscape:cx="11"
+     inkscape:cy="11"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg3997" />
+  <defs
+     id="defs3991">
+    <style
+       id="style3989">
+      .cls-1 {
+        fill: #55595c;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #55595c;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path
+     id="Path_989"
+     data-name="Path 989"
+     class="cls-1"
+     d="m 105.798,-376.858 5,-5.29 -1.75,-1.851 -3.25,3.434 -3.248,-3.436 -1.752,1.852 z"
+     inkscape:connector-curvature="0"
+     style="fill:#000000" />
+  <path
+     style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+     d="m 106,-392 c -4.85782,0 -8.581377,2.97429 -10.162109,6.79102 -1.580733,3.81672 -1.04986,8.5517 2.384765,11.98632 3.434624,3.43463 8.169604,3.9655 11.986324,2.38477 C 114.02571,-372.41862 117,-376.14218 117,-381 c 0,-6.06329 -4.93671,-11 -11,-11 z m 0,2 c 4.98241,0 9,4.01759 9,9 0,4.05185 -2.41284,7.01242 -5.55664,8.31445 -3.1438,1.30204 -6.94194,0.91353 -9.806641,-1.95117 -2.864698,-2.8647 -3.253208,-6.66284 -1.951172,-9.80664 C 98.987582,-387.58716 101.94815,-390 106,-390 Z"
+     id="Path_1334"
+     inkscape:connector-curvature="0" />
+</svg>

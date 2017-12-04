@@ -1,0 +1,32 @@
+{
+  "rulesDirectory": ["node_modules/codelyzer"],
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier"],
+  "rules": {
+    "import-blacklist": [true, "rxjs"],
+    "directive-selector": [true, "attribute", "pi", "camelCase"],
+    "component-selector": [true, "element", "pi", "kebab-case"],
+    "quotemark": [true, "single"],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "component-class-suffix": true,
+    "directive-class-suffix": true,
+    "no-access-missing-member": true,
+    "templates-use-public": true,
+    "invoke-injectable": true,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
+    ],
+    "prefer-function-over-method": [true, "allow-public", "allow-protected"],
+    "no-increment-decrement": false,
+    "strict-boolean-expressions": false
+  }
+}

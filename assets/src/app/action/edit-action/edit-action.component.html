@@ -1,0 +1,27 @@
+<div class="action" [formGroup]="form">
+  <label>
+    <div>The event is called...</div>
+    <input formControlName="name" class="input" />
+  </label>
+
+  <label class="label-row">
+    <span>And should start</span>
+    <input type="number" formControlName="startDaysBefore" class="input--inline" />
+    <span>days before the deadline.</span>
+  </label>
+
+  <label class="label-row">
+    <span>And should be done</span>
+    <input type="number" formControlName="finishDaysBefore" class="input--inline" />
+    <span>days before the deadline.</span>
+  </label>
+
+  <label>
+    <div>Please note that...</div>
+    <textarea></textarea>
+  </label>
+
+  <div>
+    <button type="button" class="button--primary" (click)="update.emit(action)">Save</button>
+  </div>
+</div>

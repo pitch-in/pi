@@ -1,0 +1,3 @@
+<pi-edit-action *ngIf="editing" [parent]="parent" [action]="action" (update)="updateAction($event)" (close)="editing = false"></pi-edit-action>
+
+<pi-show-action *ngIf="!editing" [parent]="parent" [action]="action" (edit)="editing = true"></pi-show-action>

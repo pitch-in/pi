@@ -1,0 +1,44 @@
+@import 'mixins/icons';
+
+.icon-logo {
+  @include icon-logo;
+}
+.icon-bell {
+  @include icon-bell;
+}
+.icon-calendar {
+  @include icon-calendar;
+}
+.icon-check {
+  @include icon-check;
+}
+.icon-chevron-down {
+  @include icon-chevron-down;
+}
+.icon-chevron-left {
+  @include icon-chevron-left;
+}
+.icon-chevron-right {
+  @include icon-chevron-right;
+}
+.icon-chevron-up {
+  @include icon-chevron-up;
+}
+.icon-copy {
+  @include icon-copy;
+}
+.icon-edit {
+  @include icon-edit;
+}
+.icon-plus {
+  @include icon-plus;
+}
+.icon-star {
+  @include icon-star;
+}
+.icon-trash {
+  @include icon-trash;
+}
+.icon-undo {
+  @include icon-undo;
+}

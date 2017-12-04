@@ -1,0 +1,29 @@
+@import 'variables/colors';
+@import 'mixins/form';
+@import 'mixins/button';
+
+.input {
+  @include input;
+}
+
+.input--inline {
+  color: $blue;
+  border: none;
+  border-bottom: 1px solid $blue;
+  display: inline-block;
+}
+.label-row {
+  margin-bottom: 0.5rem;
+}
+
+.button--primary {
+  @include button($blue);
+}
+
+.button--success {
+  @include button($green);
+}
+
+.button--secondary {
+  @include button($gray-5);
+}

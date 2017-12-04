@@ -1,0 +1,12 @@
+@import 'variables/colors';
+
+:host {
+  display: block;
+  border-bottom: solid $gray-5 1px;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.add-action {
+  margin-left: 1rem;
+}

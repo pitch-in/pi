@@ -1,0 +1,32 @@
+@import 'variables/sizes';
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+@mixin column($breakpoint, $size, $columns) {
+  @media (min-width: $size) {
+    .column--#{$breakpoint}-#{$columns} {
+      width: ($columns / 12) * 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+$breakpoints: (mobile: 0, tablet: $tablet-width, desktop: $desktop-width);
+
+@each $breakpoint, $size in $breakpoints {
+  @for $columns from 1 through 12 {
+    @include column($breakpoint, $size, $columns);
+  }
+
+  .column--#{$breakpoint}-grow {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

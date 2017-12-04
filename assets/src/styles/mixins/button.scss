@@ -1,0 +1,9 @@
+@import './typography';
+@import 'variables/colors';
+
+@mixin button($background, $color: $white) {
+  background: $background;
+  color: $color;
+  padding: 10px;
+  width: 28px;
+}

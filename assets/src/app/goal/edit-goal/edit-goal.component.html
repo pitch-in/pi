@@ -1,0 +1,22 @@
+<form class="goal" [formGroup]="form">
+
+  <label class="label-row">
+    <span>I want to have</span>
+    <input formControlName="name" class="input--inline" />
+  </label>
+
+  <label class="label-row">
+    <span>finished by</span>
+    <input type="date" formControlName="deadline" class="input--inline" placeholder="date" />
+  </label>
+
+  <div>
+    <button type="button" class="button--primary" (click)="update.emit(goal)">Save</button>
+  </div>
+
+  <!-- Actions -->
+
+  <div class="action" *ngFor="let action of goal.actions">
+    <pi-action [action]="action" [parent]="goal"></pi-action>
+  </div>
+</form>

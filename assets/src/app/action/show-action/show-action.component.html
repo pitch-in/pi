@@ -1,0 +1,32 @@
+<div class="main-row">
+  <button type="button" [class]="expandButtonClass" (click)="toggleExpansion()">
+  </button>
+
+  <div class="description">
+    <span>
+      {{action.name}}
+    </span>
+    by
+    <span>
+      {{finishByDate | date : 'MMM dd'}}
+    </span>
+  </div>
+</div>
+
+<div *ngIf="expanded" class="commands">
+  <button type="button" class="edit-button" (click)="edit.emit(action)">
+  </button>
+
+  <button type="button" class="clone-button" (click)="clone.emit(action)">
+  </button>
+
+  <button type="button" class="finish-button" (click)="finish.emit(action)">
+  </button>
+
+  <div class="spacer"></div>
+
+  <button type="button" class="remove-button" (click)="remove.emit(action)">
+  </button>
+</div>
+
+<hr/>

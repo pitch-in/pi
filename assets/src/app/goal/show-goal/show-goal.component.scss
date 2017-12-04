@@ -1,0 +1,58 @@
+@import 'variables/colors';
+@import 'mixins/expansion-button';
+@import 'mixins/icons';
+
+.main-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.description {
+  flex-grow: 1;
+}
+
+.expand-button--expanded {
+  color: $gold;
+  @include icon-chevron-up;
+}
+
+.expand-button--closed {
+  color: $gold;
+  @include icon-chevron-down;
+}
+
+.edit-button {
+  color: $blue;
+  @include icon-edit;
+}
+
+.clone-button {
+  color: $black;
+  @include icon-copy;
+}
+
+.finish-button {
+  color: $green;
+  @include icon-check;
+}
+
+.remove-button {
+  color: $red;
+  @include icon-trash;
+}
+
+.commands {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.actions {
+  margin-left: 30px;
+  margin-top: 0.5rem;
+}

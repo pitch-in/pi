@@ -1,0 +1,49 @@
+@import 'variables/fonts';
+
+@function to-rem($px) {
+  @return $px / 16px * 1rem;
+}
+
+@mixin regular-font() {
+  font-family: $body-font;
+  font-weight: 400;
+}
+
+@mixin bold-font() {
+  font-family: $body-font;
+  font-weight: 700;
+}
+
+@mixin p {
+  @include regular-font();
+  font-size: 1rem;
+}
+@mixin h1 {
+  @include bold-font();
+  font-family: $header-font;
+  font-size: to-rem(36px);
+}
+@mixin h2 {
+  @include bold-font();
+  font-family: $header-font;
+  font-size: to-rem(30px);
+}
+@mixin h3 {
+  @include bold-font();
+  font-family: $header-font;
+  font-size: to-rem(24px);
+}
+@mixin h4 {
+  @include bold-font();
+  font-family: $header-font;
+  font-size: to-rem(20px);
+}
+@mixin a {
+  @include regular-font();
+  font-size: to-rem(18px);
+}
+
+@mixin small-text {
+  @include regular-font();
+  font-size: to-rem(14px);
+}

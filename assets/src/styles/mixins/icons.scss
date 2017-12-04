@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('/assets/fonts/icon-font/icomoon.eot');
+  src: url('/assets/fonts/icon-font/icomoon.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/icon-font/icomoon.ttf') format('truetype'),
+    url('/assets/fonts/icon-font/icomoon.woff') format('woff'),
+    url('/fonts/icomoon.svg?3bzps#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin icon-styling() {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: inherit;
+}
+
+@mixin icon($content) {
+  @include icon-styling;
+  &:before {
+    content: $content;
+  }
+}
+@mixin icon-logo {
+  @include icon('\e902');
+}
+@mixin icon-bell {
+  @include icon('\e900');
+}
+@mixin icon-calendar {
+  @include icon('\e901');
+}
+@mixin icon-check {
+  @include icon('\e903');
+}
+@mixin icon-chevron-down {
+  @include icon('\e904');
+}
+@mixin icon-chevron-left {
+  @include icon('\e905');
+}
+@mixin icon-chevron-right {
+  @include icon('\e906');
+}
+@mixin icon-chevron-up {
+  @include icon('\e907');
+}
+@mixin icon-copy {
+  @include icon('\e908');
+}
+@mixin icon-edit {
+  @include icon('\e909');
+  content: '';
+}
+@mixin icon-plus {
+  @include icon('\e90a');
+}
+@mixin icon-star {
+  @include icon('\e90b');
+}
+@mixin icon-trash {
+  @include icon('\e90c');
+}
+@mixin icon-undo {
+  @include icon('\e90d');
+}
