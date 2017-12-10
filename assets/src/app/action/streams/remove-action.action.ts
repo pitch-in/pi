@@ -1,5 +1,5 @@
 import { SubjectWrapper } from 'app/shared/stream.helpers';
 
-import { Action } from '../action.model';
+import * as Action from '../action';
 
-export class RemoveActionAction extends SubjectWrapper<Action> {}
+export class RemoveActionAction extends SubjectWrapper<Action.t> {}

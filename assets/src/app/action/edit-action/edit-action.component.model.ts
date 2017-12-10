@@ -1,8 +1,8 @@
 import { FormSchema } from 'app/shared/form.helpers';
 
-import { Action } from '../action.model';
+import * as Action from '../action';
 
-export const actionSchema: FormSchema<Action> = {
+export const actionSchema: FormSchema<Action.t> = {
   id: [''],
   name: [''],
   notes: [''],

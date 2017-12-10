@@ -10,15 +10,15 @@ import 'rxjs/add/observable/merge';
 
 import { StreamWrapper } from 'app/shared/stream.helpers';
 
-import { Goal } from '../goal.model';
+import * as Goal from '../goal';
 
 import { GoalsService } from '../goals.service';
 import { AddGoalStream } from './add-goal.stream';
 import { CloneGoalStream } from './clone-goal.stream';
 
 @Injectable()
-export class UpdateGoalStream implements StreamWrapper<Observable<Goal>> {
-  $: Observable<Goal>;
+export class UpdateGoalStream implements StreamWrapper<Observable<Goal.t>> {
+  $: Observable<Goal.t>;
 
   constructor(
     goalsService: GoalsService,
@@ -30,9 +30,9 @@ export class UpdateGoalStream implements StreamWrapper<Observable<Goal>> {
 
     const addGoal$ = addGoalAction.$.flatMap(goalsService.addGoal);
 
-    const updateGoal$ = updateGoalAction.$
-      .flatMap(goalsService.updateGoal)
-      .do(console.log);
+    const updateGoal$ = updateGoalAction.$.flatMap(goalsService.updateGoal).do(
+      console.log
+    );
 
     this.$ = Observable.merge(cloneGoal$, addGoal$, updateGoal$);
   }

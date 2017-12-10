@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { Goal } from 'app/goal/goal.model';
+import * as Goal from 'app/goal/goal';
 
-import { goalFactory, nextGoalId } from 'app/goal/goal.model.test-factory';
+import { goalFactory, nextGoalId } from 'app/goal/goal.test-factory';
 
 import {
   assoc,
@@ -21,7 +21,7 @@ import {
 } from 'ramda';
 
 interface GoalHash {
-  [id: string]: Goal;
+  [id: string]: Goal.t;
 }
 
 @Injectable()
@@ -29,24 +29,24 @@ export class GoalsRepo {
   goals: GoalHash;
 
   constructor() {
-    this.goals = pipe(map((goal: Goal) => [goal.id, goal]), fromPairs)(
+    this.goals = pipe(map((goal: Goal.t) => [goal.id, goal]), fromPairs)(
       goalFactory.buildList(2)
     );
   }
 
-  index(): Goal[] {
+  index(): Goal.t[] {
     return values(this.goals);
   }
 
-  get(id: string): Goal {
+  get(id: string): Goal.t {
     return this.goals[id];
   }
 
-  getByActionId(id: string): Goal {
+  getByActionId(id: string): Goal.t {
     return findByActionId(id, this.goals);
   }
 
-  post(goal: Goal): Goal {
+  post(goal: Goal.t): Goal.t {
     const goalId = nextGoalId();
 
     this.goals = assoc(goalId, { ...goal, id: goalId }, this.goals);
@@ -54,7 +54,7 @@ export class GoalsRepo {
     return goal;
   }
 
-  put(goal: Goal): Goal {
+  put(goal: Goal.t): Goal.t {
     this.goals = assoc(goal.id, goal, this.goals);
 
     return goal;
@@ -64,7 +64,7 @@ export class GoalsRepo {
     this.goals = dissoc(id, this.goals);
   }
 
-  clone(id: string): Goal {
+  clone(id: string): Goal.t {
     let goal = this.get(id);
     goal = assoc('id', nextId(this.goals), goal);
 
@@ -85,8 +85,8 @@ const nextId: (a: GoalHash) => string = pipe(
   toString
 );
 
-const hasActionId = (actionId: string) => (goal: Goal): boolean =>
+const hasActionId = (actionId: string) => (goal: Goal.t): boolean =>
   Boolean(goal.actions.find(action => action.id === actionId));
 
-const findByActionId = (actionId: string, goal: GoalHash): Goal =>
+const findByActionId = (actionId: string, goal: GoalHash): Goal.t =>
   pipe(values, find(hasActionId(actionId)))(goal);

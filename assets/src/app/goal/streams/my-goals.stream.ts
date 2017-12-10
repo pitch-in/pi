@@ -9,7 +9,7 @@ import 'rxjs/add/observable/merge';
 
 import { StreamWrapper } from 'app/shared/stream.helpers';
 
-import { Goal } from '../goal.model';
+import * as Goal from '../goal';
 
 import { GoalsService } from './../goals.service';
 
@@ -17,8 +17,8 @@ import { UpdateActionStream } from 'app/action/streams/update-action.stream';
 import { UpdateGoalStream } from './update-goal.stream';
 
 @Injectable()
-export class MyGoalsStream implements StreamWrapper<Observable<Goal[]>> {
-  $: Observable<Goal[]>;
+export class MyGoalsStream implements StreamWrapper<Observable<Goal.t[]>> {
+  $: Observable<Goal.t[]>;
 
   constructor(
     searchMyGoalsAction: SearchMyGoalsAction,

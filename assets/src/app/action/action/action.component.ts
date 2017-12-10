@@ -1,8 +1,8 @@
 import { RemoveActionAction } from './../streams/remove-action.action';
 import { Component, Input } from '@angular/core';
 
-import { Goal } from 'app/goal/goal.model';
-import { Action } from '../action.model';
+import * as Goal from 'app/goal/goal';
+import * as Action from '../action';
 import { UpdateActionAction } from 'app/action/streams/update-action.action';
 
 @Component({
@@ -11,8 +11,8 @@ import { UpdateActionAction } from 'app/action/streams/update-action.action';
   styleUrls: ['action.component.scss']
 })
 export class ActionComponent {
-  @Input() action: Action;
-  @Input() parent: Goal;
+  @Input() action: Action.t;
+  @Input() parent: Goal.t;
   @Input() editing: boolean;
 
   constructor(
@@ -20,11 +20,11 @@ export class ActionComponent {
     private updateActionAction: UpdateActionAction
   ) {}
 
-  updateAction(action: Action) {
+  updateAction(action: Action.t) {
     this.updateActionAction.$.next(action);
   }
 
-  removeAction(action: Action) {
+  removeAction(action: Action.t) {
     this.removeActionAction.$.next(action);
   }
 }

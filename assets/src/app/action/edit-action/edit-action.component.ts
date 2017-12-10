@@ -5,8 +5,8 @@ import * as moment from 'moment';
 
 import { buildForm } from 'app/shared/form.helpers';
 
-import { Action, dynamicDate } from '../action.model';
-import { Goal } from 'app/goal/goal.model';
+import * as Action from '../action';
+import * as Goal from 'app/goal/goal';
 import { actionSchema } from './edit-action.component.model';
 
 @Component({
@@ -16,14 +16,14 @@ import { actionSchema } from './edit-action.component.model';
 })
 export class EditActionComponent {
   @Input()
-  set action(action: Action) {
+  set action(action: Action.t) {
     this.form = buildForm(this.fb, actionSchema, action);
   }
-  get action(): Action {
+  get action(): Action.t {
     return this.form.value;
   }
 
-  @Input() parent: Goal;
+  @Input() parent: Goal.t;
   @Output() update = new EventEmitter();
   @Output() close = new EventEmitter();
   form: FormGroup;
@@ -35,10 +35,10 @@ export class EditActionComponent {
   }
 
   get startByDate(): moment.Moment {
-    return dynamicDate(this.parent, this.action.startDaysBefore);
+    return Action.dynamicDate(this.parent, this.action.startDaysBefore);
   }
 
   get finishByDate(): moment.Moment {
-    return dynamicDate(this.parent, this.action.finishDaysBefore);
+    return Action.dynamicDate(this.parent, this.action.finishDaysBefore);
   }
 }

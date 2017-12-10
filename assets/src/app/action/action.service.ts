@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/of';
 
-import { ActionWithContext } from './action.model';
+import { ActionWithContext } from './action';
 
 import { ActionRepo } from 'app/repos/action.repo';
-import { Action } from 'app/action/action.model';
+import * as Action from 'app/action/action';
 import { always } from 'ramda';
 
 @Injectable()
@@ -17,17 +17,17 @@ export class ActionService {
     private actionRepo: ActionRepo /* private httpClient: HttpClient */
   ) {}
 
-  index = (): Observable<Action[]> => Observable.of(this.actionRepo.index());
+  index = (): Observable<Action.t[]> => Observable.of(this.actionRepo.index());
 
   toDoList = (): Observable<ActionWithContext[]> =>
     Observable.of(this.actionRepo.toDoList());
 
-  add = (goalId: string, action: Action): Observable<Action> =>
+  add = (goalId: string, action: Action.t): Observable<Action.t> =>
     Observable.of(this.actionRepo.post(goalId, action));
 
-  remove = (action: Action): Observable<Action> =>
+  remove = (action: Action.t): Observable<Action.t> =>
     Observable.of(this.actionRepo.delete(action)).map(always(action));
 
-  update = (action: Action): Observable<Action> =>
+  update = (action: Action.t): Observable<Action.t> =>
     Observable.of(this.actionRepo.put(action));
 }

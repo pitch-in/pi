@@ -1,11 +1,11 @@
-import { Action, emptyAction } from 'app/action/action.model';
+import * as Action from 'app/action/action';
 import { Component, Input } from '@angular/core';
 
 import { AddActionAction } from 'app/action/streams/add-action.action';
 import { UpdateGoalAction } from '../streams/update-goal.action';
 import { CloneGoalStream } from '../streams/clone-goal.stream';
 
-import { Goal } from '../goal.model';
+import * as Goal from '../goal';
 
 @Component({
   selector: 'pi-goal',
@@ -13,10 +13,10 @@ import { Goal } from '../goal.model';
   styleUrls: ['goal.component.scss']
 })
 export class GoalComponent {
-  @Input() goal: Goal;
+  @Input() goal: Goal.t;
   @Input() editing: boolean;
   showNewAction: boolean;
-  newAction: Action = emptyAction;
+  newAction: Action.t = Action.emptyAction;
 
   constructor(
     private addActionAction: AddActionAction,
@@ -24,7 +24,7 @@ export class GoalComponent {
     private updateGoalAction: UpdateGoalAction
   ) {}
 
-  updateGoal(goal: Goal) {
+  updateGoal(goal: Goal.t) {
     this.updateGoalAction.$.next(goal);
   }
 
@@ -34,7 +34,7 @@ export class GoalComponent {
     this.cloneGoalStream.$.next(this.goal.id);
   }
 
-  addAction(action: Action) {
+  addAction(action: Action.t) {
     this.addActionAction.$.next([this.goal.id, action]);
   }
 

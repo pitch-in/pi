@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Goal } from 'app/goal/goal.model';
-import { Action, ActionWithContext } from 'app/action/action.model';
+import * as Goal from 'app/goal/goal';
+import * as Action from 'app/action/action';
 
-import { nextActionId } from 'app/action/action.model.test-factory';
+import { nextActionId } from 'app/action/action.test-factory';
 
 import {
   assoc,
@@ -22,15 +22,15 @@ import { GoalsRepo } from 'app/repos/goals.repo';
 export class ActionRepo {
   constructor(private goalRepo: GoalsRepo) {}
 
-  index(): Action[] {
+  index(): Action.t[] {
     return allActions(this.goalRepo.index());
   }
 
-  toDoList(): ActionWithContext[] {
+  toDoList(): Action.ActionWithContext[] {
     return toDoList(this.goalRepo.index());
   }
 
-  post(goalId: string, action: Action): Action {
+  post(goalId: string, action: Action.t): Action.t {
     let goal = this.goalRepo.get(goalId);
     let actions = goal.actions;
 
@@ -45,7 +45,7 @@ export class ActionRepo {
     return action;
   }
 
-  put(action: Action): Action {
+  put(action: Action.t): Action.t {
     let goal = this.goalRepo.getByActionId(action.id);
     let actions = goal.actions;
 
@@ -61,7 +61,7 @@ export class ActionRepo {
     return action;
   }
 
-  delete(action: Action): void {
+  delete(action: Action.t): void {
     let goal = this.goalRepo.getByActionId(action.id);
     let actions = goal.actions;
 
@@ -74,8 +74,8 @@ export class ActionRepo {
   }
 }
 
-const allActions: (a: Goal[]) => Action[] = chain(prop('actions'));
+const allActions: (a: Goal.t[]) => Action.t[] = chain(prop('actions'));
 
-const toDoList: (a: Goal[]) => ActionWithContext[] = chain(goal =>
+const toDoList: (a: Goal.t[]) => Action.ActionWithContext[] = chain(goal =>
   goal.actions.map(action => ({ action, goal }))
 );

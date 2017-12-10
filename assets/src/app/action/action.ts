@@ -1,23 +1,33 @@
 import * as moment from 'moment';
 
-import { Status, Goal } from 'app/goal/goal.model';
+import * as Goal from 'app/goal/goal';
+
 import { parseDate } from 'app/shared/date.helpers';
 
-export interface Action {
+export interface t {
   id: string;
   name: string;
   notes: string;
   startDaysBefore: number;
   finishDaysBefore: number;
-  status: Status;
+  status: Goal.Status;
 }
 
 export interface ActionWithContext {
-  action: Action;
-  goal: Goal;
+  action: t;
+  goal: Goal.t;
 }
 
-export type ActionParent = Goal;
+export type ActionParent = Goal.t;
+
+export const emptyAction: t = {
+  id: '',
+  name: '',
+  notes: '',
+  startDaysBefore: 0,
+  finishDaysBefore: 0,
+  status: 'not-started'
+};
 
 export const dynamicDate = (
   parent: { deadline: string },
@@ -28,13 +38,4 @@ export const dynamicDate = (
   const momentDeadline = parseDate(parent.deadline);
 
   return momentDeadline.subtract(daysBefore, 'days');
-};
-
-export const emptyAction: Action = {
-  id: '',
-  name: '',
-  notes: '',
-  startDaysBefore: 0,
-  finishDaysBefore: 0,
-  status: 'not-started'
 };

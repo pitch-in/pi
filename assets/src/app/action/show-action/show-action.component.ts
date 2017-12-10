@@ -2,7 +2,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 import * as moment from 'moment';
 
-import { ActionParent, Action, dynamicDate } from '../action.model';
+import * as Action from '../action';
 
 @Component({
   selector: 'pi-show-action',
@@ -10,8 +10,8 @@ import { ActionParent, Action, dynamicDate } from '../action.model';
   styleUrls: ['show-action.component.scss']
 })
 export class ShowActionComponent {
-  @Input() parent: ActionParent;
-  @Input() action: Action;
+  @Input() parent: Action.ActionParent;
+  @Input() action: Action.t;
   @Output() remove = new EventEmitter();
   @Output() edit = new EventEmitter();
   @Output() finish = new EventEmitter();
@@ -28,6 +28,6 @@ export class ShowActionComponent {
   }
 
   get finishByDate(): moment.Moment {
-    return dynamicDate(this.parent, this.action.finishDaysBefore);
+    return Action.dynamicDate(this.parent, this.action.finishDaysBefore);
   }
 }

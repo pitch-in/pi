@@ -1,10 +1,10 @@
 import * as Factory from 'app/shared/factory.helpers';
 
-import { Goal } from './goal.model';
+import * as Goal from './goal';
 
 import { toString } from 'ramda';
 
-import { actionFactory } from 'app/action/action.model.test-factory';
+import { actionFactory } from 'app/action/action.test-factory';
 
 let id = 1;
 
@@ -12,7 +12,7 @@ export function nextGoalId(): string {
   return toString(id++);
 }
 
-export const goalFactory = Factory.makeFactory<Goal>({
+export const goalFactory = Factory.makeFactory<Goal.t>({
   id: Factory.each(nextGoalId),
   name: 'Do a thing',
   notes: '',
@@ -21,7 +21,7 @@ export const goalFactory = Factory.makeFactory<Goal>({
   actions: actionFactory.buildList(2)
 });
 
-export const emptyGoalFactory = Factory.makeFactory<Goal>({
+export const emptyGoalFactory = Factory.makeFactory<Goal.t>({
   id: Factory.each(nextGoalId),
   name: '',
   notes: '',

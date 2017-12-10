@@ -1,4 +1,4 @@
-export const doLog = <T>(x: T): T => {
-  console.log(x);
-  return x;
+export const log = (...args: any[]) => <T>(data: T): T => {
+  console.log.apply(null, args.concat([data]));
+  return data;
 };

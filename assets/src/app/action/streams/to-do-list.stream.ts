@@ -7,7 +7,7 @@ import { StreamWrapper } from 'app/shared/stream.helpers';
 
 import { SearchToDoListAction } from './search-to-do-list.action';
 
-import { ActionWithContext, dynamicDate } from '../action.model';
+import { ActionWithContext, dynamicDate } from '../action';
 
 import { ActionService } from 'app/action/action.service';
 
@@ -20,9 +20,9 @@ export class ToDoListStream
     searchToDoListAction: SearchToDoListAction,
     actionService: ActionService
   ) {
-    this.$ = searchToDoListAction.$
-      .flatMap(actionService.toDoList)
-      .map(sortActions);
+    this.$ = searchToDoListAction.$.flatMap(actionService.toDoList).map(
+      sortActions
+    );
   }
 }
 

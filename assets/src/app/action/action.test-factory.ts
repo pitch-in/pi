@@ -2,7 +2,7 @@ import * as Factory from 'app/shared/factory.helpers';
 
 import { toString } from 'ramda';
 
-import { Action } from 'app/action/action.model';
+import * as Action from 'app/action/action';
 
 let id = 1;
 
@@ -10,7 +10,7 @@ export function nextActionId(): string {
   return toString(id++);
 }
 
-export const actionFactory = Factory.makeFactory<Action>({
+export const actionFactory = Factory.makeFactory<Action.t>({
   id: Factory.each(nextActionId),
   name: 'Do a small task',
   notes: '',
@@ -19,7 +19,7 @@ export const actionFactory = Factory.makeFactory<Action>({
   status: 'in-progress'
 });
 
-export const emptyActionFactory = Factory.makeFactory<Action>({
+export const emptyActionFactory = Factory.makeFactory<Action.t>({
   id: Factory.each(nextActionId),
   name: '',
   notes: '',

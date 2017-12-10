@@ -1,4 +1,4 @@
-import { Goal, emptyGoal } from 'app/goal/goal.model';
+import * as Goal from 'app/goal/goal';
 import { SearchMyGoalsAction } from './../streams/search-my-goals.action';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,7 +12,7 @@ import { AddGoalStream } from '../streams/add-goal.stream';
   styleUrls: ['my-goals.component.scss']
 })
 export class MyGoalsComponent implements OnInit {
-  newGoal: Goal = emptyGoal;
+  newGoal: Goal.t = Goal.emptyGoal;
   showNewGoal: boolean;
 
   constructor(
@@ -29,7 +29,7 @@ export class MyGoalsComponent implements OnInit {
     this.showNewGoal = true;
   }
 
-  addGoal(goal: Goal) {
+  addGoal(goal: Goal.t) {
     this.addGoalStream.$.next(goal);
     this.showNewGoal = false;
   }

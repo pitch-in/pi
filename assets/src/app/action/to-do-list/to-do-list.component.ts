@@ -2,7 +2,7 @@ import { SearchToDoListAction } from './../streams/search-to-do-list.action';
 import { Component, OnInit } from '@angular/core';
 
 import { ToDoListStream } from './../streams/to-do-list.stream';
-// import { Action } from '../action.model';
+// import * as Action from '../action';
 
 @Component({
   selector: 'pi-to-do-list',

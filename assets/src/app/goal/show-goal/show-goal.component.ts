@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Goal } from '../goal.model';
+import * as Goal from '../goal';
 
 @Component({
   selector: 'pi-show-goal',
@@ -8,7 +8,7 @@ import { Goal } from '../goal.model';
   styleUrls: ['show-goal.component.scss']
 })
 export class ShowGoalComponent {
-  @Input() goal: Goal;
+  @Input() goal: Goal.t;
   @Output() edit = new EventEmitter();
   expanded: boolean;
 

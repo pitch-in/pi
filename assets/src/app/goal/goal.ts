@@ -1,17 +1,17 @@
-import { Action } from 'app/action/action.model';
+import * as Action from 'app/action/action';
 
 export type Status = 'not-started' | 'in-progress' | 'ready' | 'done';
 
-export interface Goal {
+export interface t {
   id: string;
   name: string;
   notes: string;
   deadline: string;
   status: Status;
-  actions: Action[];
+  actions: Action.t[];
 }
 
-export const emptyGoal: Goal = {
+export const emptyGoal: t = {
   id: '',
   name: '',
   notes: '',
