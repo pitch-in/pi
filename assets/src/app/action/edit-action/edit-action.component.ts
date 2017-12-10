@@ -35,10 +35,10 @@ export class EditActionComponent {
   }
 
   get startByDate(): moment.Moment {
-    return Action.dynamicDate(this.parent, this.action.startDaysBefore);
+    return Action.dynamicDate('startDaysBefore', this.parent, this.action);
   }
 
   get finishByDate(): moment.Moment {
-    return Action.dynamicDate(this.parent, this.action.finishDaysBefore);
+    return Action.dynamicDate('finishDaysBefore', this.parent, this.action);
   }
 }

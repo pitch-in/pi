@@ -28,6 +28,6 @@ export class ShowActionComponent {
   }
 
   get finishByDate(): moment.Moment {
-    return Action.dynamicDate(this.parent, this.action.finishDaysBefore);
+    return Action.dynamicDate('finishDaysBefore', this.parent, this.action);
   }
 }

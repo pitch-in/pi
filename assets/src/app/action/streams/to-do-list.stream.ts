@@ -7,14 +7,14 @@ import { StreamWrapper } from 'app/shared/stream.helpers';
 
 import { SearchToDoListAction } from './search-to-do-list.action';
 
-import { ActionWithContext, dynamicDate } from '../action';
+import * as Action from '../action';
 
 import { ActionService } from 'app/action/action.service';
 
 @Injectable()
 export class ToDoListStream
-  implements StreamWrapper<Observable<ActionWithContext[]>> {
-  $: Observable<ActionWithContext[]>;
+  implements StreamWrapper<Observable<Action.ActionWithContext[]>> {
+  $: Observable<Action.ActionWithContext[]>;
 
   constructor(
     searchToDoListAction: SearchToDoListAction,
@@ -26,13 +26,20 @@ export class ToDoListStream
   }
 }
 
-const endDate = (action: ActionWithContext): string =>
-  dynamicDate(action.goal, action.action.finishDaysBefore).toISOString();
+const endDate = (action: Action.ActionWithContext): string =>
+  Action.dynamicDate(
+    'finishDaysBefore',
+    action.goal,
+    action.action
+  ).toISOString();
 
-const startDate = (action: ActionWithContext): string =>
-  dynamicDate(action.goal, action.action.startDaysBefore).toISOString();
+const startDate = (action: Action.ActionWithContext): string =>
+  Action.dynamicDate(
+    'startDaysBefore',
+    action.goal,
+    action.action
+  ).toISOString();
 
-const sortActions: (actions: ActionWithContext[]) => ActionWithContext[] = pipe(
-  sortBy(endDate),
-  sortBy(startDate)
-);
+const sortActions: (
+  actions: Action.ActionWithContext[]
+) => Action.ActionWithContext[] = pipe(sortBy(endDate), sortBy(startDate));

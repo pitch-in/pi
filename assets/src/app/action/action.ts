@@ -30,11 +30,13 @@ export const emptyAction: t = {
 };
 
 export const dynamicDate = (
+  daysField: 'startDaysBefore' | 'finishDaysBefore',
   parent: { deadline: string },
-  daysBefore: number
+  action: t
 ): moment.Moment => {
   if (!parent) return;
 
+  const daysBefore: number = action[daysField];
   const momentDeadline = parseDate(parent.deadline);
 
   return momentDeadline.subtract(daysBefore, 'days');
